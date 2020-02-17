@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="userinput">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/userinput.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

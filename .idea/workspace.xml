@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2384653a-efff-4376-a553-07b48479c99b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XqzI1XquOKvhy6OP8CwoOQisy5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/whitehatgaming" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GameManager" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.whitehatgaming.GameManager" />
+      <module name="Chess" />
+      <option name="PROGRAM_PARAMETERS" value="src/sample-moves.txt" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GameManager" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2384653a-efff-4376-a553-07b48479c99b" name="Default Changelist" comment="" />
+      <created>1581788329470</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581788329470</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="273" y="107" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581974487100">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="273" y="107" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1581974487100" />
+    <state x="430" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581805860507">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="430" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1581805860507" />
+    <state x="533" y="184" key="#com.intellij.ide.util.MemberChooser" timestamp="1581960923964">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="533" y="184" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1581960923964" />
+    <state x="546" y="236" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1581789163194">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="546" y="236" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1440.877@0.23.1440.877" timestamp="1581789163194" />
+    <state x="558" y="179" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1581895321618">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="558" y="179" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.1440.877@0.23.1440.877" timestamp="1581895321618" />
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581973401403">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1581973401403" />
+    <state width="1398" height="248" key="GridCell.Tab.0.bottom" timestamp="1581974554087">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="248" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1581974554087" />
+    <state width="1398" height="248" key="GridCell.Tab.0.center" timestamp="1581974554086">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="248" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1581974554086" />
+    <state width="1398" height="248" key="GridCell.Tab.0.left" timestamp="1581974554086">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="248" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1581974554086" />
+    <state width="1398" height="248" key="GridCell.Tab.0.right" timestamp="1581974554086">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="248" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1581974554086" />
+    <state x="208" y="43" key="SettingsEditor" timestamp="1581895322737">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="208" y="43" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1581895322737" />
+    <state x="367" y="218" width="706" height="486" key="find.popup" timestamp="1581963155537">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="367" y="218" width="706" height="486" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1581963155537" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1581789512659">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.23.1440.877@0.23.1440.877" timestamp="1581789512659" />
+    <state x="482" y="75" key="refactoring.ChangeSignatureDialog" timestamp="1581960332863">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="482" y="75" key="refactoring.ChangeSignatureDialog/0.23.1440.877@0.23.1440.877" timestamp="1581960332863" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1581894140384">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1581894140384" />
+  </component>
+</project>
