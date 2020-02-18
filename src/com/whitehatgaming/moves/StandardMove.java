@@ -29,16 +29,6 @@ public class StandardMove implements Move {
     }
 
     @Override
-    public void undo() {
-        Piece movedPiece = board.at(dstSquare);
-
-        board.setPieceAt(dstSquare, capturedPiece);
-        board.setPieceAt(srcSquare, movedPiece);
-
-        capturedPiece = null;
-    }
-
-    @Override
     public Square getSource() {
         return srcSquare;
     }

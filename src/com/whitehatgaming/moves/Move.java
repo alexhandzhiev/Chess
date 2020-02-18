@@ -6,8 +6,6 @@ import com.whitehatgaming.pieces.Piece;
 public interface Move {
     void execute();
 
-    void undo();
-
     Piece getCapturedPiece();
 
     Square getSource();

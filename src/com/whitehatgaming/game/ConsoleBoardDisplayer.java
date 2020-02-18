@@ -2,9 +2,6 @@ package com.whitehatgaming.game;
 
 import com.whitehatgaming.pieces.Piece;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ConsoleBoardDisplayer {
 
     public void displayBoard(Board board) {
@@ -13,7 +10,7 @@ public class ConsoleBoardDisplayer {
         System.out.println(" |--------------------------|");
 
         for (int row = 0; row < 8; row++) {
-            int rowNum = row+1;
+            int rowNum = 8 - row;
             System.out.print(rowNum + "| ");
 
             for (int col = 0; col < 8; col++) {

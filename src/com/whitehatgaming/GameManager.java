@@ -1,5 +1,6 @@
 package com.whitehatgaming;
 
+import com.whitehatgaming.exceptions.InvalidMovementException;
 import com.whitehatgaming.game.Game;
 import com.whitehatgaming.game.Square;
 
@@ -15,32 +16,39 @@ public class GameManager {
         try {
             input = new UserInputFile("src/sample-moves.txt");
             LinkedHashMap<Square, Square> moves = new LinkedHashMap<>();
-
             int[] moveIn;
+
+            // System.out.println("[Movement Coordinates]");
+            // System.out.println("======================");
+
             while ((moveIn = input.nextMove()) != null) {
-                System.out.println("[" + moveIn[1] + "," +moveIn[0] + "] -> [" +  moveIn[3] + "," + moveIn[2] + "]");
+
+                for (int i = 0; i < moveIn.length; i++) {
+                    if(moveIn[i] > 7 || moveIn[i] < 0)  {
+                        throw new InvalidMovementException();
+                    }
+                }
+
+                // System.out.println("[" + moveIn[1] + "," +moveIn[0] + "]  ->  [" +  moveIn[3] + "," + moveIn[2] + "]");
                 Square squareSrc = new Square(moveIn[1], moveIn[0]);
                 Square squareDst = new Square(moveIn[3], moveIn[2]);
+
+                if(squareSrc.equals(squareDst)) {
+                    throw new InvalidMovementException();
+
+                }
                 moves.put(squareSrc, squareDst);
             }
+            System.out.println();
 
-            Game game = new Game();
-            game.start(moves);
+            Game gameEngine = new Game();
+            gameEngine.start(moves);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InvalidMovementException e) {
+            e.printStackTrace();
         }
-
-
-//        Player player1 = new ConsolePlayer(Color.WHITE);
-//        Player player2 = new ConsolePlayer(Color.BLACK);
-//
-//        NotationConverter converter = new StandardConverter();
-//        BoardDisplayer displayer = new ConsoleBoardDisplayer();
-
-//        Game game = new Game(player1, player2, displayer, converter);
-
-//        game.start()
     }
 }

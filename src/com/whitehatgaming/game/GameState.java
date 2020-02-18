@@ -29,33 +29,17 @@ public class GameState {
         return new GameState(playerColor, boardState);
     }
 
-    public boolean isEnded() {
-        return boardState == BoardState.CHECKMATE || boardState == BoardState.STALEMATE;
-    }
-
     public void notifyMove(Move move, Board board) {
         playerColor = playerColor.opponent();
 
         evaluateBoardState(board);
     }
 
-    public Color currentPlayerColor() {
-        return playerColor;
-    }
-
     private void evaluateBoardState(Board board) {
         if (isCheck(playerColor, board)) {
             boardState = BoardState.CHECK;
+        } else {
+            boardState = BoardState.STANDARD;
         }
-
-        if (isCheckMate(playerColor, board)) {
-            boardState = BoardState.CHECKMATE;
-        }
-
-        if (isStaleMate(playerColor, board)) {
-            boardState = BoardState.STALEMATE;
-        }
-
-        boardState = BoardState.STANDARD;
     }
 }

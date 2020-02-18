@@ -13,14 +13,6 @@ public class BoardEvaluator {
         return isThreatenedBy(color.opponent(), findKing(color, board), board);
     }
 
-    public static boolean isCheckMate(Color color, Board board) {
-        return isCheck(color, board) && legalMoves(color, board).isEmpty();
-    }
-
-    public static boolean isStaleMate(Color color, Board board) {
-        return !isCheck(color, board) && legalMoves(color, board).isEmpty();
-    }
-
     public static boolean isThreatenedBy(Color color, Square square, Board board) {
         return semiLegalMoves(color, board).stream().anyMatch((move) -> (move.getDst().equals(square)));
     }
@@ -29,9 +21,7 @@ public class BoardEvaluator {
         List<Move> legalMoves = new ArrayList<>();
         List<Move> semiLegalMoves = semiLegalMoves(color, board);
 
-        semiLegalMoves.stream().filter((move) -> {
-            return isThreatenedBy(color.opponent(), move.getDst(), board);
-        }).forEach((move) -> {
+        semiLegalMoves.stream().filter((move) -> isThreatenedBy(color.opponent(), move.getDst(), board)).forEach((move) -> {
             legalMoves.add(move);
         });
 

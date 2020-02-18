@@ -22,11 +22,6 @@ public class PawnPush implements Move {
     }
 
     @Override
-    public void undo() {
-        pawnPush.undo();
-    }
-
-    @Override
     public Piece getCapturedPiece() {
         return pawnPush.getCapturedPiece();
     }

@@ -1,5 +1,6 @@
 package com.whitehatgaming.game;
 
+import com.whitehatgaming.exceptions.InvalidMovementException;
 import com.whitehatgaming.moves.Move;
 import com.whitehatgaming.pieces.Color;
 import com.whitehatgaming.pieces.Piece;
@@ -15,7 +16,6 @@ public class Game {
     private final Stack<GameState> stateHistory;
     private final BoardInitializer initializer;
     private final ConsoleBoardDisplayer boardDisplayer;
-    private final List<Color> players;
 
     public Game() {
         this.board = new Board();
@@ -25,50 +25,56 @@ public class Game {
         moveHistory = new Stack<>();
         stateHistory = new Stack<>();
 
-        players = new ArrayList<>();
-        players.add(Color.WHITE);
-        players.add(Color.BLACK);
-
         initializer.init(board);
     }
 
-    public void start(LinkedHashMap<Square, Square> moves) {
+    public void start(LinkedHashMap<Square, Square> moves) throws InvalidMovementException {
+        int currentMove = 1;
+        System.out.println("        -=- START -=-");
 
         for(Map.Entry<Square, Square> entry : moves.entrySet()) {
-            Piece piece = board.at(entry.getKey());
-            System.out.print(" Coords: [" + entry.getKey().getCol() +","+ entry.getKey().getRow() +"]");
-            System.out.print(" Pc: " + board.at(entry.getKey()));
-            System.out.println();
-            List<Move> legalMoves = piece.availableMoves(entry.getKey(), board);
-            System.out.println("Mv: " + legalMoves.size() + " " );
+            System.out.println("-====-====- Move:" + currentMove++ + " -====-====-");
 
-            if(legalMoves != null && !legalMoves.isEmpty()) {
+            String unicodeMessage =
+                    "\u2654 " + // white king
+                            "\u2655 " + // white queen
+                            "\u2656 " + // white rook
+                            "\u2657 " + // white bishop
+                            "\u2658 " + // white knight
+                            "\u2659 " + // white pawn
+                            "\n" +
+                            "\u265A " + // black king
+                            "\u265B " + // black queen
+                            "\u265C " + // black rook
+                            "\u265D " + // black bishop
+                            "\u265E " + // black knight
+                            "\u265F " + // black pawn
+                            "\n" ;
+            System.out.println(unicodeMessage);
+            Piece piece = board.at(entry.getKey());
+            List<Move> legalMoves = piece.availableMoves(entry.getKey(), board);
+
+            if(!legalMoves.isEmpty()) {
                 for (Move move : legalMoves) {
                     if (move.equals(entry.getKey(), entry.getValue())) {
                         executeMove(move);
-                        System.out.println(move.getDst().isValid());
                         break;
                     }
                 }
+            } else {
+                String msg = board.at(entry.getKey()) +
+                        " [" + entry.getKey().getCol() +","+ entry.getKey().getRow() +
+                        "] -> [" + entry.getValue().getCol() + "," + entry.getValue().getRow() + "]";
+                throw new InvalidMovementException(msg);
             }
+
+            //TODO: less displaying in the engine - more in the displayer
+            if(BoardState.CHECK.name().equalsIgnoreCase(state.getBoardState().name())) {
+                System.out.println( "        -=- " + state.getBoardState().name() + " -=-");
+            }
+
             boardDisplayer.displayBoard(board);
         }
-//        System.out.println(legalMoves);
-//        for(Map.Entry<Square, Square> entry : moves.entrySet()) {
-
-//            executeMove();
-//        }
-//        for (Square sq : board.allSquares()) {
-//            List<Move> legalMoves = board.at(sq).availableMoves(sq, board);
-//            System.out.println("Pc: " + board.at(sq) + " " + legalMoves);
-//        }
-    }
-
-    public void undo() {
-        moveHistory.peek().undo();
-        moveHistory.pop();
-
-        state = stateHistory.pop();
     }
 
     public void executeMove(Move move) {
