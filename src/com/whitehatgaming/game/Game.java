@@ -33,35 +33,35 @@ public class Game {
     }
 
     public void start(LinkedHashMap<Square, Square> moves) {
+
         for(Map.Entry<Square, Square> entry : moves.entrySet()) {
-//            System.out.println("Src: " + entry.getKey().getCol() + " " + entry.getKey().getRow());
-//            System.out.println("Dst: " + entry.getValue().getCol() + " " + entry.getValue().getRow());
-
             Piece piece = board.at(entry.getKey());
-            System.out.println("Coords: " + entry.getKey().getRow() + " " + entry.getKey().getCol());
-            System.out.println("Pc: " + board.at(entry.getKey()));
+            System.out.print(" Coords: [" + entry.getKey().getCol() +","+ entry.getKey().getRow() +"]");
+            System.out.print(" Pc: " + board.at(entry.getKey()));
+            System.out.println();
+            List<Move> legalMoves = piece.availableMoves(entry.getKey(), board);
+            System.out.println("Mv: " + legalMoves.size() + " " );
 
-//            List<Move> legalMoves = piece.availableMoves(entry.getKey(), board);
-//            System.out.println("Mv: " + legalMoves.get(0));
-//            for (Move move : legalMoves) {
-//                if (move.equals(entry.getKey(), entry.getValue())) {
-//                    executeMove(move);
-//                    break;
-//                }
-//            }
+            if(legalMoves != null && !legalMoves.isEmpty()) {
+                for (Move move : legalMoves) {
+                    if (move.equals(entry.getKey(), entry.getValue())) {
+                        executeMove(move);
+                        System.out.println(move.getDst().isValid());
+                        break;
+                    }
+                }
+            }
+            boardDisplayer.displayBoard(board);
         }
 //        System.out.println(legalMoves);
 //        for(Map.Entry<Square, Square> entry : moves.entrySet()) {
 
 //            executeMove();
 //        }
-        for (Square sq : board.allSquares()) {
-            List<Move> legalMoves = board.at(sq).availableMoves(sq, board);
-            System.out.println("Pc: " + board.at(sq) + " " + sq.getRow() + " " + sq.getCol() + " " + legalMoves);
-        }
-
-        boardDisplayer.displayBoard(board);
-
+//        for (Square sq : board.allSquares()) {
+//            List<Move> legalMoves = board.at(sq).availableMoves(sq, board);
+//            System.out.println("Pc: " + board.at(sq) + " " + legalMoves);
+//        }
     }
 
     public void undo() {

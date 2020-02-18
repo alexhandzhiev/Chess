@@ -2,7 +2,7 @@ package com.whitehatgaming.pieces;
 
 public enum Color {
 
-    BLACK(-1, 6), WHITE(1, 1);
+    BLACK(1, 1), WHITE(-1, 6);
 
     private final int direction;
     private final int pawnRow;

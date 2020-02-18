@@ -18,9 +18,9 @@ public class GameManager {
 
             int[] moveIn;
             while ((moveIn = input.nextMove()) != null) {
-                System.out.println(moveIn[0] + "" + moveIn[1] + "" + moveIn[2] + "" + moveIn[3]);
-                Square squareSrc = new Square(moveIn[0], moveIn[1]);
-                Square squareDst = new Square(moveIn[2], moveIn[3]);
+                System.out.println("[" + moveIn[1] + "," +moveIn[0] + "] -> [" +  moveIn[3] + "," + moveIn[2] + "]");
+                Square squareSrc = new Square(moveIn[1], moveIn[0]);
+                Square squareDst = new Square(moveIn[3], moveIn[2]);
                 moves.put(squareSrc, squareDst);
             }
 
