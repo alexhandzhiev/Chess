@@ -35,22 +35,6 @@ public class Game {
         for(Map.Entry<Square, Square> entry : moves.entrySet()) {
             System.out.println("-====-====- Move:" + currentMove++ + " -====-====-");
 
-            String unicodeMessage =
-                    "\u2654 " + // white king
-                            "\u2655 " + // white queen
-                            "\u2656 " + // white rook
-                            "\u2657 " + // white bishop
-                            "\u2658 " + // white knight
-                            "\u2659 " + // white pawn
-                            "\n" +
-                            "\u265A " + // black king
-                            "\u265B " + // black queen
-                            "\u265C " + // black rook
-                            "\u265D " + // black bishop
-                            "\u265E " + // black knight
-                            "\u265F " + // black pawn
-                            "\n" ;
-            System.out.println(unicodeMessage);
             Piece piece = board.at(entry.getKey());
             List<Move> legalMoves = piece.availableMoves(entry.getKey(), board);
 
