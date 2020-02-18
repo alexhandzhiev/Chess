@@ -29,7 +29,6 @@ public class GameManager {
                     }
                 }
 
-                // System.out.println("[" + moveIn[1] + "," +moveIn[0] + "]  ->  [" +  moveIn[3] + "," + moveIn[2] + "]");
                 Square squareSrc = new Square(moveIn[1], moveIn[0]);
                 Square squareDst = new Square(moveIn[3], moveIn[2]);
 

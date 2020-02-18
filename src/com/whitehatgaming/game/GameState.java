@@ -25,6 +25,10 @@ public class GameState {
         this.boardState = state;
     }
 
+    public Color getPlayerColor() {
+        return playerColor;
+    }
+
     public GameState copy() {
         return new GameState(playerColor, boardState);
     }

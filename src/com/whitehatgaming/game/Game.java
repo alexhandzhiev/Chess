@@ -1,5 +1,8 @@
 package com.whitehatgaming.game;
 
+import static com.whitehatgaming.game.BoardEvaluator.isThreatenedBy;
+import static com.whitehatgaming.game.BoardEvaluator.legalMoves;
+
 import com.whitehatgaming.exceptions.InvalidMovementException;
 import com.whitehatgaming.moves.Move;
 import com.whitehatgaming.pieces.Color;
@@ -41,14 +44,19 @@ public class Game {
             if(!legalMoves.isEmpty()) {
                 for (Move move : legalMoves) {
                     if (move.equals(entry.getKey(), entry.getValue())) {
-                        executeMove(move);
-                        break;
+                        if(BoardState.CHECK.name().equalsIgnoreCase(state.getBoardState().name()) &&
+                                isThreatenedBy(state.getPlayerColor().opponent(), move.getDst(), board)) {
+                            System.out.println("-===-==- Invalid Move -==-===-");
+                        } else {
+                            executeMove(move);
+                            break;
+                        }
                     }
                 }
             } else {
                 String msg = board.at(entry.getKey()) +
-                        " [" + entry.getKey().getCol() +","+ entry.getKey().getRow() +
-                        "] -> [" + entry.getValue().getCol() + "," + entry.getValue().getRow() + "]";
+                        " [" + entry.getKey().getCol() +","+ entry.getKey().getRow() + "] -> [" +
+                        entry.getValue().getCol() + "," + entry.getValue().getRow() + "]";
                 throw new InvalidMovementException(msg);
             }
 
