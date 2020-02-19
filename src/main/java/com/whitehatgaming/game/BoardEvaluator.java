@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardEvaluator {
+
     public static boolean isCheck(Color color, Board board) {
         return isThreatenedBy(color.opponent(), findKing(color, board), board);
     }

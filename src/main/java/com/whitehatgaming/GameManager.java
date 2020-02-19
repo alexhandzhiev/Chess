@@ -40,12 +40,15 @@ public class GameManager {
                 if(squareSrc.equals(squareDst)) {
                     throw new InvalidMovementException();
                 }
+
                 moves.put(squareSrc, squareDst);
             }
+
             System.out.println();
 
             Game gameEngine = new Game();
             gameEngine.start(moves);
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -15,11 +15,6 @@ public class Board {
         positions = new HashMap<>();
     }
 
-    /* Used only for copying */
-    private Board(Map<Square, Piece> newBoard) {
-        this.positions = newBoard;
-    }
-
     public List<Square> allSquares() {
         return new ArrayList<>(positions.keySet());
     }

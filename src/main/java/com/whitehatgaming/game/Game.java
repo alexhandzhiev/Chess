@@ -1,7 +1,6 @@
 package com.whitehatgaming.game;
 
 import static com.whitehatgaming.game.BoardEvaluator.isThreatenedBy;
-import static com.whitehatgaming.game.BoardEvaluator.legalMoves;
 
 import com.whitehatgaming.exceptions.InvalidMovementException;
 import com.whitehatgaming.moves.Move;
@@ -39,11 +38,13 @@ public class Game {
             System.out.println("-====-====- Move:" + currentMove++ + " -====-====-");
 
             Piece piece = board.at(entry.getKey());
-            List<Move> legalMoves = piece.availableMoves(entry.getKey(), board);
+            List<Move> availableMoves = piece.availableMoves(entry.getKey(), board);
 
-            if(!legalMoves.isEmpty()) {
-                for (Move move : legalMoves) {
+            if(!availableMoves.isEmpty()) {
+                for (Move move : availableMoves) {
+                    //checking if the available moves contains our current move
                     if (move.equals(entry.getKey(), entry.getValue())) {
+                        //checking if the move will result in another move in a check state - which is an invalid move
                         if(BoardState.CHECK.name().equalsIgnoreCase(state.getBoardState().name()) &&
                                 isThreatenedBy(state.getPlayerColor().opponent(), move.getDst(), board)) {
                             System.out.println("-===-==- Invalid Move -==-===-");
@@ -60,7 +61,7 @@ public class Game {
                 throw new InvalidMovementException(msg);
             }
 
-            //TODO: less displaying in the engine - more in the displayer
+            //TODO: less displaying in the engine - more in the displayer :D
             if(BoardState.CHECK.name().equalsIgnoreCase(state.getBoardState().name())) {
                 System.out.println( "        -=- " + state.getBoardState().name() + " -=-");
             }
