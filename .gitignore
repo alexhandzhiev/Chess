@@ -3,6 +3,7 @@
 *.iml
 /build/
 /.gradle/
-gradlew*
+gradlew
+gradlew.bat
 Chess.iml
 /gradle/
