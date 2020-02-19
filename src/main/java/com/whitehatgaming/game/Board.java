@@ -20,10 +20,6 @@ public class Board {
         this.positions = newBoard;
     }
 
-    public Board copy() {
-        return new Board(new HashMap<>(positions));
-    }
-
     public List<Square> allSquares() {
         return new ArrayList<>(positions.keySet());
     }

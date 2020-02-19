@@ -39,7 +39,6 @@ public class GameManager {
 
                 if(squareSrc.equals(squareDst)) {
                     throw new InvalidMovementException();
-
                 }
                 moves.put(squareSrc, squareDst);
             }
@@ -52,7 +51,7 @@ public class GameManager {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InvalidMovementException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 }

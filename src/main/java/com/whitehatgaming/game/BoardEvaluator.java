@@ -21,11 +21,12 @@ public class BoardEvaluator {
         List<Move> legalMoves = new ArrayList<>();
         List<Move> semiLegalMoves = semiLegalMoves(color, board);
 
-        semiLegalMoves.stream().filter((move) -> {
-            return isThreatenedBy(color.opponent(), move.getDst(), board);
-        }).forEach((move) -> {
-            legalMoves.add(move);
-        });
+        System.out.println(semiLegalMoves);
+        semiLegalMoves.stream().filter(move ->
+            !isThreatenedBy(color.opponent(), move.getDst(), board)
+        ).forEach(move ->
+            legalMoves.add(move)
+        );
 
         return legalMoves;
     }
