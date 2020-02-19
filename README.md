@@ -11,6 +11,8 @@ d1f3
 d7d6
 f3f7
 ```
+ - example files are stored in `resources` folder
+
 
 Run with:
 ```bash
