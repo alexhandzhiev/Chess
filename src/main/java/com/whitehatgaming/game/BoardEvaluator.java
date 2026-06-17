@@ -14,20 +14,44 @@ public class BoardEvaluator {
         return isThreatenedBy(color.opponent(), findKing(color, board), board);
     }
 
-    public static boolean isThreatenedBy(Color color, Square square, Board board) {
-        return semiLegalMoves(color, board).stream().anyMatch((move) -> (move.getDst().equals(square)));
+    /**
+     * Classifies the position from {@code color}'s point of view: checkmate and
+     * stalemate both mean "no legal move", distinguished by whether the king is in check.
+     */
+    public static BoardState evaluate(Color color, Board board) {
+        boolean inCheck = isCheck(color, board);
+        boolean canMove = !legalMoves(color, board).isEmpty();
+
+        if (inCheck && !canMove) {
+            return BoardState.CHECKMATE;
+        } else if (!inCheck && !canMove) {
+            return BoardState.STALEMATE;
+        } else if (inCheck) {
+            return BoardState.CHECK;
+        } else {
+            return BoardState.STANDARD;
+        }
     }
 
+    private static boolean isThreatenedBy(Color color, Square square, Board board) {
+        return semiLegalMoves(color, board).stream().anyMatch(move -> move.getDst().equals(square));
+    }
+
+    /**
+     * Returns the moves {@code color} may legally play: every pseudo-legal move that
+     * does not leave its own king in check. Each candidate is tried on the board and
+     * rolled back, which naturally handles pins and the obligation to escape check.
+     */
     public static List<Move> legalMoves(Color color, Board board) {
         List<Move> legalMoves = new ArrayList<>();
-        List<Move> semiLegalMoves = semiLegalMoves(color, board);
 
-        System.out.println(semiLegalMoves);
-        semiLegalMoves.stream().filter(move ->
-            !isThreatenedBy(color.opponent(), move.getDst(), board)
-        ).forEach(move ->
-            legalMoves.add(move)
-        );
+        for (Move move : semiLegalMoves(color, board)) {
+            move.execute();
+            if (!isCheck(color, board)) {
+                legalMoves.add(move);
+            }
+            move.undo();
+        }
 
         return legalMoves;
     }
@@ -47,7 +71,7 @@ public class BoardEvaluator {
     private static List<Move> semiLegalMoves(Color color, Board board) {
         List<Move> moveList = new ArrayList<>();
 
-        board.allSquares().stream().forEach((square) -> {
+        board.allSquares().forEach(square -> {
             Piece piece = board.at(square);
             if (piece.isColor(color)) {
                 moveList.addAll(piece.availableMoves(square, board));

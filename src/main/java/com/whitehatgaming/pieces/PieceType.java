@@ -10,9 +10,9 @@ public enum PieceType {
     ROOK(new RookMoveGenerator()),
     PAWN(new PawnMoveGenerator());
 
-    MoveGenerator generator;
+    final MoveGenerator generator;
 
-    private PieceType(MoveGenerator generator) {
+    PieceType(MoveGenerator generator) {
         this.generator = generator;
     }
 }

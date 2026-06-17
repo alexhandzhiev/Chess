@@ -43,4 +43,14 @@ public enum Piece {
     public List<Move> availableMoves(Square position, Board board) {
         return type.generator.generateMoves(position, color, board);
     }
+
+    public static Piece of(PieceType type, Color color) {
+        for (Piece piece : values()) {
+            if (piece.type == type && piece.color == color) {
+                return piece;
+            }
+        }
+
+        throw new IllegalArgumentException("No piece for " + color + " " + type);
+    }
 }

@@ -9,11 +9,11 @@ public class ConsoleBoardDisplayer {
         System.out.println("    A  B  C  D  E  F  G  H");
         System.out.println(" |--------------------------|");
 
-        for (int row = 0; row < 8; row++) {
-            int rowNum = 8 - row;
+        for (int row = 0; row < Board.SIZE; row++) {
+            int rowNum = Board.SIZE - row;
             System.out.print(rowNum + "| ");
 
-            for (int col = 0; col < 8; col++) {
+            for (int col = 0; col < Board.SIZE; col++) {
                 Square square = new Square(row, col);
                 Piece piece = board.at(square);
 

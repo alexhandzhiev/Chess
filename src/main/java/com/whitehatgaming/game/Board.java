@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class Board {
 
+    public static final int SIZE = 8;
+
     private final Map<Square, Piece> positions;
 
     public Board() {

@@ -4,7 +4,6 @@ import com.whitehatgaming.pieces.Color;
 import com.whitehatgaming.pieces.Piece;
 
 public class BoardInitializer {
-    private static final int COLS = 8;
 
     public void init(Board board) {
         board.setPieceAt(Square.at(7, 0), Piece.WHITE_ROOK);
@@ -25,11 +24,11 @@ public class BoardInitializer {
         board.setPieceAt(Square.at(0, 6), Piece.BLACK_KNIGHT);
         board.setPieceAt(Square.at(0, 7), Piece.BLACK_ROOK);
 
-        for (int col = 0; col < COLS; col++) {
+        for (int col = 0; col < Board.SIZE; col++) {
             board.setPieceAt(Square.at(Color.WHITE.pawnRow(), col), Piece.WHITE_PAWN);
         }
 
-        for (int col = 0; col < COLS; col++) {
+        for (int col = 0; col < Board.SIZE; col++) {
             board.setPieceAt(Square.at(Color.BLACK.pawnRow(), col), Piece.BLACK_PAWN);
         }
     }

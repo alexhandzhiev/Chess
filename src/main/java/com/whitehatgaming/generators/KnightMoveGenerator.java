@@ -1,6 +1,6 @@
 package com.whitehatgaming.generators;
 
-import static com.whitehatgaming.generators.MoveGeneratorHelper.addMoveIfEmptyOrOpponent;
+import static com.whitehatgaming.generators.MoveGeneratorHelper.stepIfEmptyOrOpponent;
 
 import com.whitehatgaming.game.Board;
 import com.whitehatgaming.moves.Move;
@@ -16,14 +16,14 @@ public class KnightMoveGenerator implements MoveGenerator {
     public List<Move> generateMoves(Square square, Color color, Board board) {
         List<Move> moves = new ArrayList<>();
 
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, 2, 1), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, 2, -1), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, -2, 1), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, -2, -1), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, 1, 2), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, 1, -2), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, -1, 2), color, moves, board);
-        addMoveIfEmptyOrOpponent(square, Square.atOffset(square, -1, -2), color, moves, board);
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, 2, 1), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, 2, -1), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, -2, 1), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, -2, -1), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, 1, 2), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, 1, -2), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, -1, 2), color, board));
+        moves.addAll(stepIfEmptyOrOpponent(square, Square.atOffset(square, -1, -2), color, board));
 
         return moves;
     }

@@ -1,6 +1,6 @@
 package com.whitehatgaming.generators;
 
-import static com.whitehatgaming.generators.MoveGeneratorHelper.addVectorIfEmptyOrOpponent;
+import static com.whitehatgaming.generators.MoveGeneratorHelper.slideWhileEmptyOrOpponent;
 
 import com.whitehatgaming.game.Board;
 import com.whitehatgaming.moves.Move;
@@ -15,10 +15,10 @@ public class BishopMoveGenerator implements MoveGenerator {
     public List<Move> generateMoves(Square square, Color color, Board board) {
         List<Move> moves = new ArrayList<>();
 
-        moves.addAll(addVectorIfEmptyOrOpponent(square, 1, 1, color, board));
-        moves.addAll(addVectorIfEmptyOrOpponent(square, 1, -1, color, board));
-        moves.addAll(addVectorIfEmptyOrOpponent(square, -1, 1, color, board));
-        moves.addAll(addVectorIfEmptyOrOpponent(square, -1, -1, color, board));
+        moves.addAll(slideWhileEmptyOrOpponent(square, 1, 1, color, board));
+        moves.addAll(slideWhileEmptyOrOpponent(square, 1, -1, color, board));
+        moves.addAll(slideWhileEmptyOrOpponent(square, -1, 1, color, board));
+        moves.addAll(slideWhileEmptyOrOpponent(square, -1, -1, color, board));
 
         return moves;
     }

@@ -8,17 +8,17 @@ import com.whitehatgaming.initializer.BlackPawnOnlyInitializer;
 import com.whitehatgaming.moves.Move;
 import com.whitehatgaming.pieces.Color;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 public class PawnGeneratorTest {
-    private static Board board;
-    private static PawnMoveGenerator pmg;
+    private Board board;
+    private PawnMoveGenerator pmg;
 
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         pmg = new PawnMoveGenerator();
         board = new Board();
     }

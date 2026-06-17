@@ -11,25 +11,36 @@ import java.util.List;
 
 public class MoveGeneratorHelper {
 
-    public static void addMoveIfEmptyOrOpponent(final Square src, final Square dst, final Color color,
-                                                final List<Move> moves, final Board board) {
-        if (src == null || dst == null) {
-            return;
-        }
+    /**
+     * A single step to {@code dst}: a one-element list if the square is empty or holds an
+     * opponent, otherwise empty. Used by the king and knight.
+     */
+    public static List<Move> stepIfEmptyOrOpponent(final Square src, final Square dst, final Color color,
+                                                   final Board board) {
+        List<Move> moves = new ArrayList<>();
 
-        if (board.isFree(dst) || board.isColor(dst, color.opponent())) {
+        if (dst != null && (board.isFree(dst) || board.isColor(dst, color.opponent()))) {
             moves.add(new StandardMove(src, dst, board));
         }
+
+        return moves;
     }
 
-    public static List<Move> addVectorIfEmptyOrOpponent(final Square src, final int rowOffset, final int colOffset,
-                                                        final Color color, final Board board) {
+    /**
+     * Every step along a direction until blocked, including a capture of the first opponent
+     * reached. Used by the sliding pieces (rook, bishop, queen).
+     */
+    public static List<Move> slideWhileEmptyOrOpponent(final Square src, final int rowOffset, final int colOffset,
+                                                       final Color color, final Board board) {
         List<Move> moves = new ArrayList<>();
 
         Square square = Square.atOffset(src, rowOffset, colOffset);
-
         while (board.isFree(square) || board.isColor(square, color.opponent())) {
             moves.add(new StandardMove(src, square, board));
+
+            if (board.isColor(square, color.opponent())) {
+                break;
+            }
             square = Square.atOffset(square, rowOffset, colOffset);
         }
 

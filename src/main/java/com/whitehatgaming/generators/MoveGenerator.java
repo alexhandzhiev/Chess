@@ -8,5 +8,5 @@ import com.whitehatgaming.pieces.Color;
 import java.util.List;
 
 public interface MoveGenerator {
-    public List<Move> generateMoves(Square square, Color color, Board board);
+    List<Move> generateMoves(Square square, Color color, Board board);
 }
